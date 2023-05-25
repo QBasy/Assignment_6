@@ -9,6 +9,11 @@ public class WeightedGraph<Vertex> {
         }
     }
 
+    public void getVertices(Vertex vertex)
+    {
+        
+    }
+
     public void addEdge(Vertex source, Vertex destination, double weight) {
         Edge<Vertex> edge = new Edge<>(source, destination, weight);
         map.get(source).add(edge);
