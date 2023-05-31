@@ -1,43 +1,40 @@
-public class Edge<Vertex>
-{
-    private Vertex source;
-    private Vertex dest;
+public class Edge<V> {
+    private V source;
+    private V destination;
     private Double weight;
 
-    public Edge(Vertex source, Vertex dest, Double weight)
-    {
+    public Edge(V source, V destination, Double weight) {
         this.source = source;
-        this.dest = dest;
+        this.destination = destination;
         this.weight = weight;
     }
 
-    public Vertex getSource()
-    {
+    public V getSource() {
         return source;
     }
 
-    public void setSource(Vertex source)
-    {
+    public void setSource(V source) {
         this.source = source;
     }
 
-    public Vertex getDes()
-    {
-        return dest;
+    public V getDes() {
+        return destination;
     }
 
-    public void setDest(Vertex dest)
-    {
-        this.dest = dest;
+    public void setDes(V destination) {
+        this.destination = destination;
     }
 
-    public Double getWeight()
-    {
+    public Double getWeight() {
         return weight;
     }
 
-    public void setWeight(Double weight)
-    {
+    public void setWeight(Double weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + source + " -> " + destination + ", weight: " + weight + ")";
     }
 }

@@ -1,8 +1,11 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
-public class BreadthFirstSearch<V> implements Search<V>
-{
+public class BreadthFirstSearch<V> implements Search<V> {
     private List<V> visit;
+
     @Override
     public List<V> traverse(WeightedGraph<V> graph, V start) {
         visit = new ArrayList<>();
@@ -14,20 +17,20 @@ public class BreadthFirstSearch<V> implements Search<V>
 
         return visit;
     }
+
     private void bfs(WeightedGraph<V> graph, Queue<V> queue) {
         if (queue.isEmpty()) {
             return;
         }
         V current = queue.poll();
-        visit.add(current);
         List<Edge<V>> edges = graph.getEdges(current);
         for (Edge<V> edge : edges) {
             V des = edge.getDes();
             if (!visit.contains(des) && !queue.contains(des)) {
                 queue.offer(des);
+                visit.add(des);
             }
         }
         bfs(graph, queue);
     }
-
 }
