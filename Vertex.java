@@ -18,6 +18,10 @@ public class Vertex<V> {
         adjacentVertices.put(destination, weight);
     }
 
+    public void setAdjacentVertices(Map<Vertex<V>, Double> adjacentVertices) {
+        this.adjacentVertices = adjacentVertices;
+    }
+
     public Map<Vertex<V>, Double> getAdjacentVertices() {
         return adjacentVertices;
     }
