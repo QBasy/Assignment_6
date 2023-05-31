@@ -1,33 +1,33 @@
 import java.util.*;
 
-public class WeightedGraph<V> {
-    private Map<V, List<Edge<V>>> map = new HashMap<>();
+public class WeightedGraph<Vertex> {
+    private Map<Vertex, List<Edge<Vertex>>> map = new HashMap<>();
 
-    public void addVertex(V vertex) {
+    public void addVertex(Vertex vertex) {
         if (!map.containsKey(vertex)) {
             map.put(vertex, new ArrayList<>());
         }
     }
 
-    public Set<V> getVertices() {
+    public Set<Vertex> getVertices() {
         return map.keySet();
     }
 
-    public void addEdge(V source, V destination, double weight) {
-        Edge<V> edge = new Edge<>(source, destination, weight);
+    public void addEdge(Vertex source, Vertex destination, double weight) {
+        Edge<Vertex> edge = new Edge<>(source, destination, weight);
         map.get(source).add(edge);
     }
 
-    public List<Edge<V>> getEdges(V vertex) {
+    public List<Edge<Vertex>> getEdges(Vertex vertex) {
         return map.getOrDefault(vertex, new ArrayList<>());
     }
 
     public void printGraph() {
-        for (Map.Entry<V, List<Edge<V>>> entry : map.entrySet()) {
-            V vertex = entry.getKey();
-            List<Edge<V>> edges = entry.getValue();
+        for (Map.Entry<Vertex, List<Edge<Vertex>>> entry : map.entrySet()) {
+            Vertex vertex = entry.getKey();
+            List<Edge<Vertex>> edges = entry.getValue();
             System.out.print("Vertex: " + vertex + " Edges: ");
-            for (Edge<V> edge : edges) {
+            for (Edge<Vertex> edge : edges) {
                 System.out.print(edge + " ");
             }
             System.out.println();
