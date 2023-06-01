@@ -22,6 +22,7 @@ public class Test
         graph.addEdge(vertex5, vertex3, 3);
         graph.addEdge(vertex1, vertex5, 4);
 
+        System.out.println(graph.getEdges(vertex1));
         graph.printGraph();
     }
 }
