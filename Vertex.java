@@ -25,4 +25,9 @@ public class Vertex<V> {
     public Map<Vertex<V>, Double> getAdjacentVertices() {
         return adjacentVertices;
     }
+
+    @Override
+    public String toString() {
+        return data.toString();
+    }
 }
