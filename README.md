@@ -8,91 +8,76 @@
 # Main 🚀 [Link](Main.java)
 
 ```java
-    public static void main(String[] args) 
+public class Main {
+    public static void main(String[] args)
     {
-        BST<Integer, String> tree = new BST<>();
+        WeightedGraph<Vertex<Integer>> graph = new WeightedGraph<>();
 
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 
-        while (!exit) 
+        while (!exit)
         {
             System.out.println("Enter your choice:");
-            System.out.println("1. Put (key, value)\n2. Get value by key\n3. Remove by key\n4. Check if value exists\n5. Get key by value\n6. Get size of Tree\n7. Get All keys\n8. Print all Tree");
-            System.out.println("9. Exit");
+            System.out.println("1. Add vertex\n2. Add edge\n3. Print graph\n4. Breadth-First Search\n5. Dijkstra's Algorithm");
+            System.out.println("6. Exit");
 
-            int n = scanner.nextInt();
-                switch (n) 
-                {
-                case 1:
-                    System.out.println("Enter key:");
-                    int key = scanner.nextInt();
-                    System.out.println("Enter value:");
-                    String value = scanner.next();
-                    tree.put(key, value);
-                    System.out.println("Value inserted.");
-                    break;
-                case 2:
-                    System.out.println("Enter key:");
-                    key = scanner.nextInt();
-                    String result = tree.get(key);
-                    if (result != null) {
-                        System.out.println("Value: " + result);
-                    } else {
-                        System.out.println("Key not found.");
-                    }
-                    break;
-                case 3:
-                    System.out.println("Enter key:");
-                    key = scanner.nextInt();
-                    tree.delete(key);
-                    String removedValue = tree.get(key);
-                    if (removedValue != null) {
-                        System.out.println("Press F to value: " + removedValue);
-                    } else {
-                        System.out.println("Key not found.");
-                    }
-                    break;
-                case 4:
-                    System.out.println("Enter value:");
-                    value = scanner.next();
-                    boolean contains = tree.containsValue(value);
-                    System.out.println("Value exists: " + contains);
-                    break;
-                case 5:
-                    System.out.println("Enter value:");
-                    value = scanner.next();
-                    Integer foundKey = tree.getKey(value);
-                    if (foundKey != null) {
-                        System.out.println("Key: " + foundKey);
-                    } else {
-                        System.out.println("No such value.");
-                    }
-                    break;
-                case 6:
-                    int size = tree.size();
-                    System.out.println("Size equals to: " + size);
-                case 7:
-                    tree.forEachKey();
-                    break;
-                case 8:
-                    tree.printTree();
-                    break;
-                case 9:
-                    exit = true;
-                    break;
-                default:
-                    System.out.println("Don't be a 🤡");
+            int choice = scanner.nextInt();
+            switch (choice)
+            {
+                case 1 -> {
+                    System.out.println("Enter vertex value:");
+                    int vertexValue = scanner.nextInt();
+                    Vertex<Integer> vertex = new Vertex<>(vertexValue);
+                    graph.addVertex(vertex);
+                    System.out.println("Vertex added.");
+                }
+                case 2 -> {
+                    System.out.println("Enter source vertex value:");
+                    int sourceValue = scanner.nextInt();
+                    System.out.println("Enter destination vertex value:");
+                    int desValue = scanner.nextInt();
+                    System.out.println("Enter edge weight:");
+                    double weight = scanner.nextDouble();
+                    Vertex<Integer> source = new Vertex<>(sourceValue);
+                    Vertex<Integer> destination = new Vertex<>(desValue);
+                    graph.addEdge(source, destination, weight);
+                    System.out.println("Edge added.");
+                }
+                case 3 -> {
+                    System.out.println("Graph:");
+                    graph.printGraph();
+                }
+                case 4 -> {
+                    System.out.println("Enter starting vertex value for BreadthFirstSearch:");
+                    int startBFSValue = scanner.nextInt();
+                    Vertex<Integer> startBFS = new Vertex<>(startBFSValue);
+                    BreadthFirstSearch<Vertex<Integer>> bfs = new BreadthFirstSearch<>();
+                    System.out.println("Breadth-First Search traversal:");
+                    System.out.println(bfs.traverse(graph, startBFS));
+                }
+                case 5 -> {
+                    System.out.println("Enter starting vertex value for DijkstraSearch:");
+                    int startDijkstraValue = scanner.nextInt();
+                    Vertex<Integer> startDijkstra = new Vertex<>(startDijkstraValue);
+                    DijkstraSearch<Vertex<Integer>> dijkstra = new DijkstraSearch<>();
+                    System.out.println("DijkstraSearch Algorithm traversal:");
+                    System.out.println(dijkstra.traverse(graph, startDijkstra));
+                }
+                case 6 -> exit = true;
+                default -> System.out.println("Why can't you not be a 🤡");
             }
             System.out.println();
         }
+
         System.out.println("BYE BYE!");
     }
+}
 ```
 
 ---
 
-# Class  🚀 [Link](WeightedGraph.java)
+# Class WeightedGraph 🚀 [Link](WeightedGraph.java)
 
 ```java
 import java.util.*;
