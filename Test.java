@@ -29,5 +29,6 @@ public class Test
 
         System.out.println(bfs.traverse(graph, vertex1));
         System.out.println(ds.traverse(graph, vertex1));
+        System.out.println(ds.traverse(graph, vertex3));
     }
 }
