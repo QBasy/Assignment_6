@@ -3,6 +3,8 @@ public class Test
     public static void main(String[] args)
     {
         WeightedGraph<Vertex<Integer>> graph = new WeightedGraph<>();
+        BreadthFirstSearch<Vertex<Integer>> bfs = new BreadthFirstSearch<>();
+        DijkstraSearch<Vertex<Integer>> ds = new DijkstraSearch<>();
         Vertex<Integer> vertex1 = new Vertex<>(1);
         Vertex<Integer> vertex2 = new Vertex<>(2);
         Vertex<Integer> vertex3 = new Vertex<>(3);
@@ -24,5 +26,8 @@ public class Test
 
         System.out.println(graph.getEdges(vertex1));
         graph.printGraph();
+
+        System.out.println(bfs.traverse(graph, vertex1));
+        System.out.println(ds.traverse(graph, vertex1));
     }
 }

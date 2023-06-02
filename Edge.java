@@ -13,24 +13,12 @@ public class Edge<V> {
         return source;
     }
 
-    public void setSource(V source) {
-        this.source = source;
-    }
-
     public V getDes() {
         return destination;
     }
 
-    public void setDes(V destination) {
-        this.destination = destination;
-    }
-
     public Double getWeight() {
         return weight;
-    }
-
-    public void setWeight(Double weight) {
-        this.weight = weight;
     }
 
     @Override

@@ -36,4 +36,18 @@ public class WeightedGraph<Vertex> {
             System.out.println();
         }
     }
+
+    public void removeVertex(Vertex vertex) {
+        if (map.containsKey(vertex)) {
+            map.remove(vertex);
+        }
+        for (List<Edge<Vertex>> edges : map.values()) {
+            edges.removeIf(edge -> edge.getDes().equals(vertex));
+        }
+    }
+
+    public void removeEdge(Vertex source, Vertex destination) {
+        List<Edge<Vertex>> edges = map.get(source);
+        edges.removeIf(edge -> edge.getDes().equals(destination));
+    }
 }
