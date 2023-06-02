@@ -173,7 +173,7 @@ public class WeightedGraph<Vertex> {
 
 
 
-# Class BreadthFirstSearch<V> [Link](BreadthFirstSearch.java)
+# Class BreadthFirstSearch<V> 🚀 [Link](BreadthFirstSearch.java)
 
 ```java 
 public class BreadthFirstSearch<V> implements Search<V> {
@@ -233,7 +233,7 @@ public interface Search<V> {
 ```
   
   
-# Class DijkstraSearch<V> [Link](DijkstraSearch.java)  
+# Class DijkstraSearch<V> 🚀 [Link](DijkstraSearch.java)  
 
 ```java  
 public class DijkstraSearch<V> implements Search<V> {
@@ -333,7 +333,7 @@ public class DijkstraSearch<V> implements Search<V> {
 ---                                                                
                                                                 
                                                                 
-# Class Edge<V>
+# Class Edge<V> 🚀 [Link](Edge.java)
     
 ```java
 public class Edge<V> {
